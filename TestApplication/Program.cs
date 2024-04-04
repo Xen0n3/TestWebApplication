@@ -1,8 +1,13 @@
+using Microsoft.Data.Sqlite;
+using TestApplication.Models;
+using TestApplication.Services;
+Console.Read();
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
-
+builder.Services.AddTransient<IWarehouseService, WarehouseService>();
+builder.Services.AddTransient<IProductsService, ProductsService>();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -22,6 +27,7 @@ app.UseAuthorization();
 
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Home}/{action=Index}/{id?}");
+    pattern: "{controller=Home}/{action=Warehouses}/{id?}");
 
 app.Run();
+

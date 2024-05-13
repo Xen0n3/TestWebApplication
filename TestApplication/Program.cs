@@ -1,9 +1,10 @@
 using Microsoft.Data.Sqlite;
+using Microsoft.EntityFrameworkCore;
 using TestApplication.Models;
 using TestApplication.Services;
-Console.Read();
 var builder = WebApplication.CreateBuilder(args);
-
+var connection = builder.Configuration.GetConnectionString("DefaultConnection");
+builder.Services.AddDbContext<ApplicationContext>(option => option.UseNpgsql(connection));
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 builder.Services.AddTransient<IWarehouseService, WarehouseService>();

@@ -5,11 +5,10 @@ namespace TestApplication.Models
     {
         public DbSet<WarehouseModel> Warehouses => Set<WarehouseModel>();
 		public DbSet<ProductModel> Products => Set<ProductModel>();
-		public ApplicationContext() => Database.EnsureCreated();
 
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        {
-            optionsBuilder.UseSqlite("Data Source=productsStorage.db");
+       public ApplicationContext(DbContextOptions<ApplicationContext> options) : base(options)
+        { 
+
         }
     }
 }

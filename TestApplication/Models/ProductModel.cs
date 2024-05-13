@@ -8,19 +8,7 @@ namespace TestApplication.Models
 		public string? Name { get; set; }
 		public string? Type { get; set; }
 		public string? Color { get; set; }
-		public string? ProductionDate { get; set; }
-		[NotMapped]
-		public DateTime? ProductionDateTime
-		{
-			get
-			{
-				if (ProductionDate == null || !DateTime.TryParse(ProductionDate, out DateTime productionDateTime))
-				{
-					return null;
-				}
-				return productionDateTime;
-			}
-		}
+		public DateTime? ProductionDate { get; set; }
 		public string? ProducerName { get; set; }
 		public string? CountryOfProduction { get; set; }
 		public int? Count { get; set; }

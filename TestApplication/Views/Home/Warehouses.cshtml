@@ -28,9 +28,9 @@
 				<td>@Model[i].Address</td>
 				<td>@Model[i].Capacity</td>
 				<td>
-					@if (Model[i].OpenDateTime != null)
+					@if (Model[i].OpenDate != null)
 					{
-						@Model[i].OpenDateTime.Value.ToString("d MMMM yyyyг. hh:mm:ss");
+						@Model[i].OpenDate.Value.ToString("d MMMM yyyyг. hh:mm:ss");
 					}
 				</td>
 				<td>@Model[i].IsWorking</td>

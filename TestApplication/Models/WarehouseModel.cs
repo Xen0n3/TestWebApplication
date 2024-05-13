@@ -10,20 +10,7 @@ namespace TestApplication.Models
 		public  string?  Name { get; set; }
         public string? Address { get; set; }
         public int? Capacity { get; set; }
-        public string? OpenDate { get; set; }
-
-        [NotMapped]
-        public DateTime? OpenDateTime 
-        {
-            get
-            {
-                if (OpenDate == null || !DateTime.TryParse(OpenDate,out DateTime openDateTime)) 
-                {
-                    return null;
-                }
-                return openDateTime;
-            } 
-        }
+        public DateTime? OpenDate { get; set; }
         public string? IsWorking { get; set; }
 
     }

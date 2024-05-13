@@ -33,9 +33,9 @@
 				<td>@Model[i].Type</td>
 				<td>@Model[i].Color</td>
 				<td>
-					@if (Model[i].ProductionDateTime != null)
+					@if (Model[i].ProductionDate != null)
 					{
-						@Model[i].ProductionDateTime.Value.ToString("d MMMM yyyyг. hh:mm:ss");
+						@Model[i].ProductionDate.Value.ToString("d MMMM yyyyг. hh:mm:ss");
 					}
 				</td>
 				<td>@Model[i].ProducerName</td>

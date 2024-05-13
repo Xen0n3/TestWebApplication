@@ -1,4 +1,5 @@
 ﻿
+using Microsoft.EntityFrameworkCore;
 using TestApplication.Models;
 
 namespace TestApplication.Services
@@ -6,13 +7,15 @@ namespace TestApplication.Services
 {
     public class WarehouseService : IWarehouseService
     {
-        public List<WarehouseModel> GetWarehouses()
+        public WarehouseService(ApplicationContext context)
         {
-            using (ApplicationContext db = new ApplicationContext())
-            {
-                var warehouses = db.Warehouses.ToList();
-                return warehouses;
-            }
+            _context = context;
+        }
+        private readonly ApplicationContext _context;
+        public List<WarehouseModel> GetWarehouses()
+        {     
+                var warehouses = _context.Warehouses.ToList();
+                return warehouses; 
         }
     }
 }
